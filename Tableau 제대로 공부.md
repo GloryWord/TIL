@@ -5,11 +5,22 @@
 * 계산된 필드를 만들고 LEFT 함수에 (문자열과 숫자를 넣으면 왼쪽에서 부터 몇번째 자리까지 자르는) 특수문자 ■를 넣는 스킬도 있었다.<br>이렇게 놓고 텍스트 레이블로 넣어버리면 지도에 어떤 Score 별로 ■ 쌓아 나가는 스킬 있음.
 * 이중축 차트는 언제 쓸까? 동일한 x값에 y축이 여러개 필요할 때.<br>예시: x축 년도, y 왼쪽 : 매출, y 오른쪽 : 순익
 * Parameter(매개변수)는 언제 쓸까? : 코딩과 마찬가지로, Data set에 있지 않는 환경을 만들 수 가 있다. 예를들어, 어떤 분석 결과를 대시보드에 출력했을 때, 매출이 1/3로 감소하면 어떤 결과가 나올지 궁금할 수도 있다. (What if) 그럴 때 매개변수 조절을 해가며, 그에 따른 결과를 얻어낼 수 있다.
+* 서식 변경할 때, 용어의 뜻을 알아보자. 도움이 많이 될거야.
+<img src=".\images/Tableau/formula_description.png" width="350px" height="400px" title="formula_description"/><br>
+소액결제 사용횟수 평균에 0~3회라고 되어있는 눈금을 바꾸는 방법은, 서식에서 패널이 아니라 '축'이다.  
+동그란 산점도에 나오는 레이블 서식을 조정하려면, '패널'이다.
+
+* 워크시트의 배경색을 바꾸는 방법<br><br>
+<img src=".\images/Tableau/How_to_Work_sheet_background_color_change.png" width="500px" height="450px" title="formula_description"/><br>
+부실,양호 등이 써있는 곳에 가서 우클릭-서식-버켓모양 클릭, 워크시트에 색 변경.<br>근데 총계랑 총합계가 뭔지 모르겠다.
+* 그러면 자치구가 써있는 곳의 색을 바꾸려면?<br>버켓 오른쪽에 3칸 가면 필드와 아래 선택 세모가 있다. 눌러서 자치구 시트로 변경 한다. 그러면 '머리글'과 '패널'이 있다. **일단 패널을 조작해도 자치구 글씨와 색이 변하지 않았다!**<br> 머리글을 만졌더니 움직였다. 추측하건데, 자치구가 행으로 들어가 있어서, Data Frame입장에서는 내용물인 '패널'이 아니라 헤더인 '머리글'인가 보다.
+
+
 ## 대시보드 동작 만드는 방법 (몰랐음)
 상단 메뉴바의 대시보드 - 동작 - 동작 추가 --> 누르면 나오는 것들의 기능 설명 아래에 시작.  
 
 필터를 누르면, 다음과 같은 창이 뜬다.  
-<img src=".\images\Tableau\Filter_action.png" width="400px" height="500px" title="Filter action"/><br>
+<img src=".\images\Tableau\Filter_action.png" width="500px" height="500px" title="Filter action"/><br>
 쉽게 말해, 대시보드에  <br><br>
 <img src=".\images\Tableau\Filter_action_ex1.png" width="700px" height="400px" title="Filter action"/><br>
 **Highlight Table, Spark Line**이라는 두 개의 워크시트가 있을 때 그림에서 8월의 2행 상품 카테고리인 Applcations를 클릭하면, Spark Line에서 그 카테고리에 맞게 Discount, Profit, Profit Ratio, Quntity, Sale이 필터링 되어 나오는 것이다.  
@@ -34,4 +45,3 @@
 2. 원하는 지도 템플릿 태블로 통합문서로 다운받고, 연다.
 3. 태블로 들어가서 맵-> 배경 맵 -> 맵 관리-> (중간 과정 기억 안남) -> 내보내기
 4. 새 태블로 파일 만들고  맵-> 배경 맵 -> 맵 관리-> 가져오기 끝!
-   
