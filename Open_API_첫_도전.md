@@ -32,10 +32,12 @@ HTTP GET, HTTP POST 호출하는 방법에 대해서 알아보자.
 
 [GET방식]
 
+```python
 curl -X GET "http://localhost:8000/hello?age=30"
-// GET방식은 Body 없음
-// 원도우 curl 주소 앞뒤에 '가 아닌 "로 감싸야 함
-// 리눅스 curl 주소 앞뒤는 ' 감싸기도 가능하고 " 감싸기도 가능함
+# GET방식은 Body 없음
+# 원도우 curl 주소 앞뒤에 '가 아닌 "로 감싸야 함
+# 리눅스 curl 주소 앞뒤는 ' 감싸기도 가능하고 " 감싸기도 가능함
+```
 ​
 
 [POST방식]
@@ -44,16 +46,51 @@ curl -X GET "http://localhost:8000/hello?age=30"
 
 [URL형식 데이터]
 
-curl -d "key1=value1&key2=value2" \
--H "Content-Type: application/x-www-form-urlencoded" \
+```python
+curl -d "key1=value1&key2=value2" 
+-H "Content-Type: application/x-www-form-urlencoded" 
 -X POST http://localhost:8000/data
+```  
 [JSON형식 데이터]
 
-curl -d '{"key1":"value1", "key2":"value2"}' \
--H "Content-Type: application/json" \
+```python
+curl -d '{"key1":"value1", "key2":"value2"}' 
+-H "Content-Type: application/json" 
 -X POST http://localhost:8000/data
+```
 
-// 원도우 curl에서는 '를 "로 변경하고, "를 ""로 변경하고 호출해야함
-curl -d "{""key1"":""value1"", ""key2"":""value2""}" \
--H "Content-Type: application/json" \
+```python
+# 원도우 curl에서는 '를 "로 변경하고, "를 ""로 변경하고 호출해야함
+curl -d "{""key1"":""value1"", ""key2"":""value2""}" 
+-H "Content-Type: application/json"
 -X POST http://localhost:8000/data
+```
+
+## 드디어 해결한 API 가져오기 에러... feat 멋진 팀원들
+appkey가 이상한것 같아서 재발급 받았는데도 안됐다.<br>
+Chat GPT로 에러 물어도 보고 등등 얻은것은 많았으나.... 해결을 못했다. 결국 팀원들에게 SOS 요청
+#### **GPT가 알려줬었고, 안됐던 코드...**
+```python
+!curl --request GET \
+    --url https://apis.openapi.sk.com/puzzle/subway/meta/stations \
+    --header 'appkey: {1furoTjxkT5RxWn69Gp5G2WiichZHIo5hBefd7y1}'
+```
+
+#### 전혜원님 코드
+```python
+import requests
+
+url = "https://apis.openapi.sk.com/puzzle/subway/stations"
+
+headers = {
+    "accept": "application/json",
+    "appkey": "pa9QvuuFu82jHWycxt21dan2IW3gmf55419lWWDt"
+}
+
+response = requests.get(url, headers=headers)
+
+print(response.text)
+```
+
+### 그래서 오늘 깨달은 점.
+초보 개발자에게 Chat GPT 나름 괜찮을 수도?, API 불러오는 방법, 파이썬에서 쉘 스크립트 쓰려면 !붙이고 하면 되는 것, API 불러올 때 안되면 request와 respond 클래스를 직접 하드코딩 해보는 방법도 있다는 것
