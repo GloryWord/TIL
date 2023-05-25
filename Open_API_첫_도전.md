@@ -92,5 +92,17 @@ response = requests.get(url, headers=headers)
 print(response.text)
 ```
 
-### 그래서 오늘 깨달은 점.
+### **그래서 오늘 깨달은 점.**
 초보 개발자에게 Chat GPT 나름 괜찮을 수도?, API 불러오는 방법, 파이썬에서 쉘 스크립트 쓰려면 !붙이고 하면 되는 것, API 불러올 때 안되면 request와 respond 클래스를 직접 하드코딩 해보는 방법도 있다는 것
+
+### **데이터 전처리를 하다보니, 파이썬 고급기능까지 공부하게 되었다...**
+민지님이 준 코드에
+```python
+next((code for code in stationCodeList if (code['stationName']==stationName and code['subwayLine']==subwayLine)),None)
+```
+이란 코드가 있어서 next()가 뭔지 검색했는데 iter도 알아야 했다. 세상에....<br>
+우선 iter()에 대해서는 https://zephyrus1111.tistory.com/235를 참고하자.  
+내 식대로 정리하자면, iter(리스트) 일 때, 리스트를 반복자로 바꿔준다.<br><br> 
+그 말은 for문같은 곳에서 반복자로 쓰일 수 있는 것이고, 이는 next()와 같이 사용된다. 왜냐면 next()가 반복자를 하나씩 꺼내주는 기능이거든.  
+다만, next(iterable, default)는 반복자를 다 꺼내고 나서 더 없을때 쓸 기본 값을 default 인자로 주면 된다.  
+https://homzzang.com/b/py-136
