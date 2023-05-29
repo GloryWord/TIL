@@ -43,3 +43,28 @@ POST 요청의 예 : POST /posts/1 HTTP/1.1
 
 
 이런 식으로 쓰임<br>
+### PATCH와 PUT의 차이점
+PUT : 데이터의 전체 교체. 데이터 교체 시 모든 필드를 코드에 써야함.  
+PATCH : 데이터의 부분 교체. 데이터 교체 시 일부 필드만 코드에 써도 됨.
+
+```javascript
+/users/1
+아래의 유저1의 정보가 있는데
+{
+    "username" : "johnahn",
+    "email" : "johnahn@naver.com"
+}
+
+PUT 방식으로 이메일만 바꿀 때
+{
+    "username" : "johnahn",
+    "email" : "johnahn@gmail.com" // new email address
+}
+
+PATCH 방식으로 이메일만 바꿀 때
+{
+
+    "email" : "johnahn@naver.com" // new email address
+}
+PUT을 PATCH처럼 한다면 저 위의 경우 username은 NULL 처리.
+```
