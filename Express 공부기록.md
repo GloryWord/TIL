@@ -23,3 +23,15 @@ app.listen(port, () => {
 **get** : HTTP 메소드 (POST도 있음, 데이터 전달이 주소창이 아닌 것.) 요청 방식을 이야기 한다.  
 **'/' (라우팅)** : 사이트 들어가면 페이지 마다 역할에 따라 /board/write 또는 /about 이런 식으로 바뀌는 걸 볼 수 있다. 이것을 라우터라고 한다.
 ()=>{} : 콜백함수
+***
+<h3>GET방식에서 Request에 변수 실어서 보내는 방법</h3>
+
+```javascript
+// params를 이용
+app.get('/user/:id', (req,res) => { // 콜론 뒤에 id가 들어간다. 침착맨,우왁굳 예시 들었음.
+  const q = req.params
+  console.log(q)
+})
+```
+### query를 이용한 방법.
+주소를 클릭하면, ,
