@@ -30,3 +30,36 @@
 9. SQL server에 접속하여 cmd를 키라는 말이 무슨 말인지 몰랐다. 일반 cmd에 mysql 관련 명령어를 쳐봤자, 인식을 못했다. 알고보니 MySQL Command Line을 실행해야 하는 것이었다.
 
 10. 파이썬에서 코드 실행으로 SQL을 다룰 수 있는데, 일단 연결 먼저 한 뒤에, cursor를 이용해야 한다. 그래야 그 값을 파이썬으로 가져올 수 있다. connection.cursor( )없이는 불가능하다.
+
+11. 다음은 SQL cmd에 대한 기록이다.
+
+mysql> SHOW TABLES FROM capital_subway_db;
++-----------------------------+
+| Tables_in_capital_subway_db |
++-----------------------------+
+| subway_info                 |
++-----------------------------+
+1 row in set (0.00 sec)
+
+(그리고 FROM이 두 번 나온다. 테이블에 대한 FROM, DB FROM)
+mysql> SHOW COLUMNS FROM subway_info FROM capital_subway_db;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| STATION_CD | varchar(20)  | NO   | PRI | NULL    |       |
+| STATION_NM | varchar(100) | NO   |     | NULL    |       |
+| LINE_NUM   | varchar(30)  | NO   |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+
+
+12. 파이썬으로 MySQL 접근하여 미리 만든 테이블에 데이터 넣고 commitconnection = MySQLdb.connect(user="Chuldong",passwd="Chuldong123!",host="localhost",db="Capital_Subway_DB",port=3307)
+cursor = connection.cursor() # SQL에 접근하여 조작하는 권한 획득.
+cursor.execute("INSERT INTO subway_info VALUES(%s, %s, %s)",("test1","test2","test3"))
+connection.commit()
+
+13. 그 후 SQL server에서 SHOW COLUMNS FROM subway_info FROM capital_subway_db; 하니까 테이블이 나오는게 아니라 컬럼명과 제약조건만 나옴. 테이블을 조회해야함.
+
+14. select * from subway_info; 에서도 안됨. 왜냐면 어떤 DB인지 모르기 때문이다. USE capital_subway_db;를 쓴다.
+
+15. SQL에서 쓴 단일 쿼리는, 커밋이 자동으로 된다고 한다. (물론 상단 메뉴바에서 설정을 바꿀 수 있지만...)
+
