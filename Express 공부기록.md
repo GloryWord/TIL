@@ -35,3 +35,35 @@ app.get('/user/:id', (req,res) => { // 콜론 뒤에 id가 들어간다. 침착�
 ```
 ### query를 이용한 방법.
 주소를 클릭하면, ,
+## Server.js
+Node.js에서 진입점이 되는 파일.
+
+```javascript
+const express = require('express'); // require는 라이브러리 가져오는 함수. 따라서 express라는 const 변수에 넣기.
+
+const PORT = 4000;
+const app = express();
+
+app.get('/',(req,res)=>{
+    res.send('Hello World');
+})
+
+app.listen(PORT, ()=>{ // Express 애플리케이션을 특정 포트에서 실행시키는 함수.
+    console.log('Running on port ${PORT}')
+})
+```
+**이번에는 id,pw를 받아서 user별로 서버에 접속하는 예시로 간다.**
+```javascript
+const express = require('express'); // require는 라이브러리 가져오는 함수. 따라서 express라는 const 변수에 넣기.
+
+const PORT = 4000;
+const app = express();
+
+app.get('/',(req,res)=>{
+    res.send('Hello World');
+})
+
+app.listen(PORT, ()=>{ // Express 애플리케이션을 특정 포트에서 실행시키는 함수.
+    console.log('Running on port ${PORT}')
+})
+```
