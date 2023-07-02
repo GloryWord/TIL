@@ -94,11 +94,11 @@ class Counter extends Component {
     }));
   }
 
-  render() {
+  render() { // 컴포넌트를 UI로 반환
     return (
       <div>
         <p>Count: {this.state.count}</p>
-        <button onClick={() => this.incrementCount()}>Increment</button>
+        <button onClick={() => this.incrementCount()}>Up!</button>
       </div>
     );
   }
@@ -112,4 +112,36 @@ export default Counter;
 * 그런데 super(props)를 쓰면, 내부 컴포넌트에서 상위 컴포넌트의 생성자를 활성화 시키면서 상위 컴포넌트의 초기화를 함.
 * 핵심 : 감히 내부 컴포넌트에서 상위 컴포넌트를 거슬러 올라가 생성자를 활성화 하여 상위 컴포넌트를 초기화했다.
 * incrementCount( )내부에서의 this는 호출한 녀석에서의 인스턴스 (=클래스로부터 생성된 실제 객체)이다. 호출 위치는 render( )쪽이다.
-* 
+* setState 함수는 매개변수 두 개로, (바꿀 값,함수)로 알았는데, 이건 일단 보류한다.
+* setState함수는 두 가지 방식으로 사용할 수 있다. 첫 번째 방식은 객체를 전달하여 상태를 업데이트하는 것이고, 두 번째 방식은 함수를 전달하여 업데이트를 수행하는 것. (여기선 화살표 함수를 썼다.)
+* prevState는 화살표 함수의 매개변수이고, 이전 상태(prevState)를 의미한다.
+* ({ count: prevState.count + 1 }) 이 부분의 해석은, count라는 key의 value를 업데이트했다고 보면 된다. 실제로 key,value는 아니고 이해를 돕기 위함이다. 실제로는 속성, 속성 값이다.
+## **후크**
+후크를 쓰는 이유 : 기존에는 class component로만 state를 관리할 수 있었는데, 후크를 쓰면 function component로 state를 관리할 수 있게된다.  
+후크를 쓰기 위한 중요한 규칙  
+1. React 함수 component의 최상위 수준에서 호출해야한다.
+2. 루프,조건문, 중첩된 함수 안에서 후크 호출 불가.
+3. 후크는 함수이다. 물론 어떤 함수인지에 따라 기능은 다를지 언정.<br><br>
+### 상태를 선언하는데 이용하는 후크 함수 : **useState**
+```javascript
+import React, { useState } from 'react';
+
+function Counter() {
+  // 초기값이 0인 상태
+  // useState 형태가 왼쪽에는 두 개의 인수 바꿀 값의 변수, setCount는 내장함수. (useEffect등등의 함수가 들어감.)
+  const [count, setCount] = useState(0); // 0으로 설정.
+  const incrementCount = () => {
+    setCount(prevCount => prevCount + 1);
+  };
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={incrementCount}>Increment</button>
+    </div>
+  );
+}
+
+export default Counter;
+
+```
