@@ -128,7 +128,7 @@ import React, { useState } from 'react';
 
 function Counter() {
   // 초기값이 0인 상태
-  // useState 형태가 왼쪽에는 두 개의 인수 바꿀 값의 변수, setCount는 내장함수. (useEffect등등의 함수가 들어감.)
+  // useState 형태는 왼쪽에 두 개의 인수가 나오는데, 이것은 바꿀 값의 변수, 적용할 함수이다. 참고로 setCount는 내장함수. (useEffect등등의 함수가 들어감.)
   const [count, setCount] = useState(0); // 0으로 설정.
   const incrementCount = () => {
     setCount(prevCount => prevCount + 1);
@@ -145,3 +145,62 @@ function Counter() {
 export default Counter;
 
 ```
+### **부수 효과(side effect)**
+정의 : 컴포넌트 외부와의 상호작용  
+보통 useEffect 함수를 쓴다.
+### useEffect
+useEffect( )는 리액트 컴포넌트가 렌더링 될 때마다 특정 작업을 실행할 수 있도록 하는 Hook(함수)이다.<br><br>
+그러면 경우의 수는, 최초 실행시에만 실행, component의 props, state가 update 될 때, 새로고침 같이 Re rendering될 때 마다 실행 이렇게 3가지가 있겠다.
+```javascript
+import React, { useEffect } from 'react'; // useEffect import 하는 방법
+useEffect(() => {
+    console.log('최초 실행 시에만 실행된다');
+  }, []); // 두번 째 인자에 빈 배열 넣기.
+
+useEffect(() => {
+   console.log('렌더링 될 때 마다 실행.');
+}); // 두번 째 인자에 배열이 없으면 리렌더링시 실행
+
+useEffect(() => {
+    console.log(varation);
+    console.log('varation라는 변수가 업데이트 될 때 실행.');
+  }, [varation]); // 물론, 업데이트 뿐만 아니라 최초 실행시에도 실행 됨.
+
+const mounted = useRef(false);
+
+useEffect(() => {
+  if(!mounted.current){
+    mounted.current = true; // 이곳에서의 mounted는 실행임.
+  } else {
+  //ajax
+  }
+},[바뀌는 값]); // 업데이트 할 때만 실행되고 최초 실행시에는 안 하기.
+```
+
+### **Context란?**
+컴포넌트 간에 값을 공유할 수 있도록 하는 기능. 보통 전역적인 값을 다룰 때 필요하다.  
+그냥 단순히리액트 컴포넌트에서 Props가 아닌 또 다른 방식으로 컴포넌트간에 값을 전달하는 방법이다" 라고 접근을 하시는 것도 좋다.
+#### **Props 으로만 데이터 전달 할 수도 있는거 아닌가?**
+-> 컴포넌트는 꼰대라서, 위계질서가 중요하다. 상위 클래스에서 단계적으로 하위 클래스로 전달하여 줘야하고, 컴포넌트 내부의 겹겹 컴포넌트가 많을 수록 이 과정은 더 길고 복잡해진다. 실수할 가능성도 생긴다.<br><br>
+매우 겹겹이 쌓여진 Props 전달 코드를 Props Drilling 이라고 부른다. 컴포넌트를 한 두개정도 거쳐서 Props를 전달하는거라면 괜찮지만 이렇게 4개정도를 거쳐서 전달하게 된다면, 매우 불편하다.
+### **Context의 사용법**
+```javascript
+import { createContext } from 'react';
+const MyContext = createContext();
+```
+여기서 MyContext에는 Provider라는 컴포넌트가 들어있다. 그 컴포넌트간에 공유하고자 하는 값을 value라는 Props으로 설정하면 자식 컴포넌트들에서 해당 값에 바로 접근 할 수 있다.
+```javascript
+function App() {
+  return (
+    <MyContext.Provider value = "Hello World"> 
+      <GrandParent /> 
+    </MyContext.Provider> // .
+
+  )
+  // Provider 컴포넌트의 Props 즉, 자식 컴포넌트의 입장에서는 value으로 쓸 변수의 값이 Hell World
+// JSX에서 컴포넌트를 표현하는 태그 형식 (문자 뒤에 / 있음.) 
+// 문자앞에 /가 있는것은 HTML 처럼 닫힘 태그이다
+}
+```
+
+// 
