@@ -97,13 +97,14 @@ export default function CheckTable(props) {
                   if (cell.column.Header === "NAME") {
                     data = (
                       <Flex align='center'>
-                        <Checkbox
+                        {/* <Checkbox
                           defaultChecked={cell.value[1]}
                           colorScheme='brandScheme'
                           me='10px'
-                        />
+                        /> */}
                         <Text color={textColor} fontSize='sm' fontWeight='700'>
-                          {cell.value[0]}
+                          {cell.value}
+                          {/* {cell.value[0]} */}
                         </Text>
                       </Flex>
                     );

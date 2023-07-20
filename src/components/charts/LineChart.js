@@ -19,28 +19,11 @@ class LineChart extends React.Component {
       chartOptions: this.props.chartOptions,
     });
   }
-  //
-  componentDidUpdate(prevProps) {
-    if (this.props.chartData !== prevProps.chartData){
-      this.setState({
-        chartData: this.props.updatedChartData,
-        chartOptions: this.props.chartOptions,
-      })
-    }
-  }
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (this.props.chartData !== prevProps.chartData){
-  //     this.setState({
-  //       chartData: this.props.chartData,
-  //       chartOptions: this.props.chartOptions,
-  //     })
-  //   }
-  // }
-  //
   render() {
-    //
+
     console.log("render : LineChart 지금 실행된다. 그리고 이때의 chartData는 ",this.state.chartData)
     return (
+      <div>
       <ReactApexChart
         options={this.state.chartOptions}
         series={this.state.chartData}
@@ -48,6 +31,7 @@ class LineChart extends React.Component {
         width='100%'
         height='100%'
       />
+      </div>
     );
   }
 }
