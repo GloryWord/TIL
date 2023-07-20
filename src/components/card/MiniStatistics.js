@@ -7,6 +7,7 @@ import {
   StatNumber,
   useColorModeValue,
   Text,
+  Image,
 } from "@chakra-ui/react";
 // Custom components
 import Card from "components/card/Card.js";
@@ -14,7 +15,7 @@ import Card from "components/card/Card.js";
 import React from "react";
 
 export default function Default(props) {
-  const { startContent, endContent, name, growth, value } = props;
+  const { image, startContent, endContent, name, growth, value } = props;
   const textColor = useColorModeValue("secondaryGray.900", "white");
   const textColorSecondary = "secondaryGray.600";
 
@@ -26,6 +27,13 @@ export default function Default(props) {
         align={{ base: "center", xl: "start" }}
         justify={{ base: "center", xl: "center" }}>
         {startContent}
+
+        {/* <Image
+            src={image}
+            w={{ base: "100%", "3xl": "100%" }}
+            h={{ base: "100%", "3xl": "100%" }}
+            borderRadius='20px'
+          /> */}
 
         <Stat my='auto' ms={startContent ? "18px" : "0px"}>
           <StatLabel

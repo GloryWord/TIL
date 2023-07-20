@@ -251,27 +251,27 @@ export const pieChartData = [63, 25, 12];
 
 // Total Spent Default
 
-export const lineChartDataTotalSpent = [
-  {
-    name: "Revenue",
-    data: [11800000, 12100000, 13000000, 14000000, 13800000, 14100000],
-  },
-  {
-    name: "Profit",
-    data: [4000000, 4300000, 3900000, 4100000, 4300000, 4200000],
-  },
-];
+// export const lineChartDataTotalSpent = [
+//   {
+//     name: "Revenue",
+//     data: [11800000, 12100000, 13000000, 14000000, 13800000, 14100000],
+//   },
+//   {
+//     name: "Profit",
+//     data: [4000000, 4300000, 3900000, 4100000, 4300000, 4200000],
+//   },
+// ];
 
-export const lineChartDataTotalTraffic = [
-  {
-    name: "Revenue",
-    data: [1800000, 12100000, 13000000, 14000000, 13800000, 14100000],
-  },
-  {
-    name: "ClickRate",
-    data: [3000000, 2300000, 6900000, 4100000, 4300000, 4200000],
-  },
-];
+// export const lineChartDataTotalTraffic = [
+//   {
+//     name: "Revenue",
+//     data: [1800000, 12100000, 13000000, 14000000, 13800000, 14100000],
+//   },
+//   {
+//     name: "ClickRate",
+//     data: [3000000, 2300000, 6900000, 4100000, 4300000, 4200000],
+//   },
+// ];
 
 export const lineChartOptionsTotalSpent = {
   chart: {
@@ -442,6 +442,42 @@ export const CategoryArr = {
     {
       name: "ClickRate",
       data: [500, 240, 100, 51, 23, 602]
+    }
+  ],
+  "스포츠/레저": [
+    {
+      name: "ClickRate",
+      data: [100, 240, 100, 51, 23, 100]
+    }
+  ],
+  "식품": [
+    {
+      name: "ClickRate",
+      data: [900, 1500, 1300, 51, 23, 621]
+    }
+  ],
+  "출산/육아": [
+    {
+      name: "ClickRate",
+      data: [900, 800, 400, 51, 23, 300]
+    }
+  ],
+  "패션의류": [
+    {
+      name: "ClickRate",
+      data: [841, 240, 613, 51, 879, 602]
+    }
+  ],
+  "패션잡화": [
+    {
+      name: "ClickRate",
+      data: [21, 240, 3, 51, 23, 1]
+    }
+  ],
+  "화장품/미용": [
+    {
+      name: "ClickRate",
+      data: [241, 240, 945, 51, 61, 76]
     }
   ]
 };

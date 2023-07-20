@@ -40,6 +40,8 @@ import IconBox from "components/icons/IconBox";
 //import { OOSTrendLogo } from "components/icons/Icons";
 import React from 'react';
 import { ReactComponent as Naver } from "assets/img/logo/Naver_Logotype.svg";
+// import { ReactComponent as Crocs } from "assets/img/logo/Naver_Logotype.svg"
+import Crocs from "assets/img/logo/crocs.png";
 import {
   MdAddTask,
   MdAttachMoney,
@@ -75,23 +77,21 @@ export default function UserReports() {
         columns={{ base: 1, md: 2, lg: 2, "2xl": 4 }}
         gap='20px'
         mb='20px'>
-        <MiniStatistics
+        {/* <MiniStatistics
           startContent={
             <IconBox
               w='56px'
               h='56px'
               bg={boxBg}       
-              icon={
-                //<Icon w='32px' h='32px' as={CoupangLogo} color={brandColor} />
-                <Icon w='32px' h='32px' as={Naver} color={brandColor} />
-                
-              }
+              
             />
           }
-          name='점유율'
-          value='27.2%'
-        />
-        <MiniStatistics
+          // image={Crocs}
+          name='클릭율 높은 카테고리'
+          value='크록스'
+          growth = '+23%'
+        /> */}
+        {/* <MiniStatistics
           startContent={
             <IconBox
               w='56px'
@@ -105,28 +105,11 @@ export default function UserReports() {
           }
           name='대분류'
           value='10개 기준'
-        />
-        {/* <MiniStatistics growth='+23%' name='클릭율' value='스마트 워치' /> */}
-        <MiniStatistics
-           endContent={
-             <Flex me='-16px' mt='10px'>
-               <FormLabel htmlFor='balance'>
-                 <Avatar src={Usa} />
-               </FormLabel>
-               <Select
-                 id='balance'
-                 variant='mini'
-                 mt='5px'
-                 me='0px'
-                 defaultValue='usd'>
-                 <option value='usd'>USD</option>
-                 <option value='eur'>EUR</option>
-                 <option value='gba'>GBA</option>
-               </Select>
-             </Flex>
-           }
-           name='Your balance'
-           value='$1,000'
+        /> */}
+        <MiniStatistics 
+          growth='+23%' 
+          name='클릭율 높은 카테고리' 
+          value='크록스'
         />
         <MiniStatistics
           startContent={
@@ -137,23 +120,9 @@ export default function UserReports() {
               icon={<Icon w='28px' h='28px' as={MdAddTask} color='white' />}
             />
           }
-          name='New Tasks'
-          value='154'
+          name='블루오션인 제품'
+          value='불스원샷'
         />
-        {/* <MiniStatistics
-          startContent={
-            <IconBox
-              w='56px'
-              h='56px'
-              bg={boxBg}
-              icon={
-                <Icon w='32px' h='32px' as={MdFileCopy} color={brandColor} />
-              }
-            />
-          }
-          name='볼수있는 카테고리'
-          value='120개'
-        /> */}
       </SimpleGrid>
 
       <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap='20px' mb='20px'>
@@ -167,10 +136,6 @@ export default function UserReports() {
           minH='365px'
           pe='20px'
         />
-        {/* <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap='20px'>
-          <DailyTraffic />
-          <PieCard />
-        </SimpleGrid> */}
       </SimpleGrid>
       {/* <SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap='20px' mb='20px'>
         <ComplexTable

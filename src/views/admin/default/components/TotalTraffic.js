@@ -16,14 +16,16 @@ import { IoCheckmarkCircle } from "react-icons/io5";
 import { MdBarChart, MdOutlineCalendarToday } from "react-icons/md";
 // Assets
 import { RiArrowUpSFill } from "react-icons/ri";
-import {
-  lineChartDataTotalSpent,
-  lineChartOptionsTotalSpent,
-  lineChartDataTotalTraffic,
-  lineChartOptionsTotalTraffic,
-  lineChartDataCategory,
-  CategoryArr
-} from "variables/charts";
+// import {
+//   lineChartDataTotalSpent,
+//   lineChartOptionsTotalSpent,
+//   lineChartDataTotalTraffic,
+//   lineChartOptionsTotalTraffic,
+//   lineChartDataCategory,
+//   CategoryArr
+// } from "variables/charts";
+import { CategoryArr } from "variables/CategoryArr"
+import { testArr } from "variables/test_1"
 import React, { useState } from "react";
 import {Select} from "@chakra-ui/react";
 import ReactApexChart from "react-apexcharts";
@@ -35,7 +37,7 @@ function MyLineChart(props) {
 	<ReactApexChart
           type="line"
           series= {[
-           	 { name: "Price", data:lineChartData},
+           	 { name: "Rate", data:lineChartData},
           ]}
           options={{
             theme: { mode: "dark" },
@@ -52,7 +54,8 @@ function MyLineChart(props) {
               labels: { show: false },
               axisTicks: { show: false },
               axisBorder: { show: false },
-              categories: ["JUN", "SEP", "NOV", "JAN", "MAR", "MAY"],
+              categories: ["2023-07-10", "2023-07-11", "2023-07-12", "2023-07-13", "2023-07-14", "2023-07-15", 
+                "2023-07-16", "2023-07-17", "2023-07-18","2023-07-19"],
               type: "category",
             },
             fill: {
@@ -61,7 +64,7 @@ function MyLineChart(props) {
             },
             colors: ["red"],
             tooltip: {
-              y: { formatter: (value) => `$ ${value.toFixed(2)}` },
+              y: { formatter: (value) => `${value.toFixed(2)}%` },
             },
           }}
         />
@@ -87,45 +90,15 @@ export default function TotalTraffic(props) {
     { bg: "whiteAlpha.100" }
   );
   const [selectedValue, setSelectedValue] = useState("");
-  const [lineChartDataTotalTraffic, setLineChartDataTotalTraffic] =useState([120, 90, 400, 5, 9, 800]);
+  const [lineChartDataTotalTraffic, setLineChartDataTotalTraffic] =useState([98.78086,93.67638,92.48594,91.16791,87.63247,91.41591,96.74643,100.0,91.99016,87.48128]);
   const handleChange = (event) => {
     const selectedCategory = event.target.value;
     
     setSelectedValue(selectedCategory);
     console.log("selectedCategory의 값(set함수 후) :",selectedCategory)
 
-    setLineChartDataTotalTraffic(CategoryArr[selectedCategory][0].data)
-    console.log("Set 후에 lineChartDataTotalTraffic :",lineChartDataTotalTraffic)
-    return (<Flex w='100%' flexDirection={{ base: "column", lg: "row" }}>
-        <Flex flexDirection='column' me='20px' mt='28px'>
-          <Text
-            color={textColor}
-            fontSize='34px'
-            textAlign='start'
-            fontWeight='700'
-            lineHeight='100%'>
-            클릭율
-          </Text>
-          <Flex align='center' mb='20px'>
-            <Flex align='center'>
-              <Icon as={RiArrowUpSFill} color='green.500' me='2px' mt='2px' />
-              <Text color='green.500' fontSize='sm' fontWeight='700'>
-                +12.45%
-              </Text>
-            </Flex>
-          </Flex>
-          <Flex align='center'>
-            <Icon as={IoCheckmarkCircle} color='green.500' me='4px' />
-            <Text color='green.500' fontSize='md' fontWeight='700'>
-              Live
-            </Text>
-          </Flex>
-        </Flex>
-        <Box minH='260px' minW='75%' mt='auto'>
-        <MyLineChart lineChartData={lineChartDataTotalTraffic} />
-        </Box>
-      </Flex>
-      );        
+    setLineChartDataTotalTraffic(testArr[selectedCategory][0].data)
+    console.log("Set 후에 lineChartDataTotalTraffic :",lineChartDataTotalTraffic)     
   };
   
   return (
@@ -175,11 +148,11 @@ export default function TotalTraffic(props) {
         <Flex flexDirection='column' me='20px' mt='28px'>
           <Text
             color={textColor}
-            fontSize='34px'
+            fontSize='17px'
             textAlign='start'
             fontWeight='700'
             lineHeight='100%'>
-            클릭율
+            주간 클릭 동향
           </Text>
           <Flex align='center' mb='20px'>
             <Text
@@ -188,14 +161,14 @@ export default function TotalTraffic(props) {
               fontWeight='500'
               mt='4px'
               me='12px'>
-              Total Traffic
+              23/07/10 ~ 23/07/19
             </Text>
-            <Flex align='center'>
+            {/* <Flex align='center'>
               <Icon as={RiArrowUpSFill} color='green.500' me='2px' mt='2px' />
               <Text color='green.500' fontSize='sm' fontWeight='700'>
                 +12.45%
               </Text>
-            </Flex>
+            </Flex> */}
           </Flex>
 
           <Flex align='center'>
