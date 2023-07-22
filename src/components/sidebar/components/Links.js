@@ -51,7 +51,7 @@ export function SidebarLinks(props) {
         route.layout === "/auth" ||
         route.layout === "/rtl" ||
         //
-        route.layout === "/tablo" ||
+        // route.layout === "/tablo" ||
         route.layout === "/tablolist"
       ) {
         return (
