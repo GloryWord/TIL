@@ -37,15 +37,15 @@ import {
 // Custom components
 import React from 'react';
 // Custom part
-import General from "views/admin/MCLS_08/components/General";
-import Projects from "views/admin/MCLS_08/components/Projects";
-import Banner from "views/admin/MCLS_08/components/Banner copy";
+import General from "views/admin/MCLS_05/components/General";
+import Projects from "views/admin/MCLS_05/components/Projects";
+import Banner from "views/admin/MCLS_05/components/Banner copy";
 import Card from "components/card/Card.js";
 import Graph from "components/card/Graph"
 // Assets
 import avatar from "assets/img/avatars/avatar4.png";
 import banner from "assets/img/auth/banner.png";
-import MCLS_08_graph1 from "assets/img/graph/MCLS_08_graph1b.png"
+import MCLS_08_graph1 from "assets/img/graph/MCLS_05_graph1.png"
 import MCLS_06_graph2 from "assets/img/graph/MCLS_06_graph2.png"
 
 export default function MCLS_08() {
@@ -85,7 +85,7 @@ export default function MCLS_08() {
               <Graph
 
                 image={MCLS_08_graph1}
-                content= "인터넷 시장 매출은 제자리, 모바일 시장 매출은 성장세"
+                content= "특정 시기 (3월, 12월) 마다 규칙적으로 매출 급증, 12월의 상승폭이 큼"
               />
               {/* <Graph
                 image={MCLS_06_graph2}

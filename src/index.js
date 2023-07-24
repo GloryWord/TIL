@@ -25,8 +25,10 @@ ReactDOM.render(
 							<Route index component ={TabloListLayout} />
 							{/* <Route path= {`/tablosample`} component = {TabloLayout} /> */}
 							{/* <Route path= {`/tablo`} component={TabloLayout} /> */}
+						<Route path={`/MCLS_05`} component={AdminLayout} />
 						<Route path={`/MCLS_06`} component={AdminLayout} />
 						<Route path={`/MCLS_08`} component={AdminLayout} />
+						<Route path={`/MCLS_11`} component={AdminLayout} />
 						</Route>
 						<Redirect from='/' to='/admin' />
 					</Switch>

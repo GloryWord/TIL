@@ -4,7 +4,7 @@ import React from "react";
 import { Button, Flex, Link, Text } from "@chakra-ui/react";
 
 // Assets
-import banner from "assets/img/nfts/MCLS_06.png";
+import banner from "assets/img/nfts/MCLS_05.png";
 
 export default function Banner() {
   // Chakra Color Mode
@@ -31,11 +31,11 @@ export default function Banner() {
         }}
         fontWeight='700'
         lineHeight={{ base: "32px", md: "42px" }}>
-        반려동물 용품은
+        사무·문구용품은 
       </Text>
       <Text
         fontSize='md'
-        color='#E3DAFF'
+        color='#00000'
         maxW={{
           base: "100%",
           md: "64%",
@@ -45,9 +45,10 @@ export default function Banner() {
           "3xl": "34%",
         }}
         fontWeight='500'
-        mb='40px'
+        mb='20px'
         lineHeight='28px'>
-        사료, 장난감, 장신구 등으로 이루어져 있어요.
+        노트, 펜, 다이어리, 달력
+        등으로 이루어져 있어요.
       </Text>
       <Flex align='center'>
         <Button
@@ -61,18 +62,13 @@ export default function Banner() {
           py='20px'
           px='27'
           me='38px'>
-           
-          <Link href="https://search.shopping.naver.com/search/category/100000010" isExternal>
-            네이버에서 확인하기
-          </Link>
-          
-          
+          대체 텍스트
         </Button>
-        <Link>
+        {/* <Link>
           <Text color='white' fontSize='sm' fontWeight='500'>
-            
+            Show
           </Text>
-        </Link>
+        </Link> */}
       </Flex>
     </Flex>
   );
