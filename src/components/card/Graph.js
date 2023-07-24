@@ -18,7 +18,7 @@ import React from "react";
 
 
 export default function Graph(props) {
-  const { image } = props;
+  const { image, content } = props;
   const textColor = useColorModeValue("navy.700", "white");
   return (
     <Card p='20px'>
@@ -31,6 +31,23 @@ export default function Graph(props) {
             borderRadius='20px'
           />
         </Box>
+        <Flex direction='column'>
+              <Text
+                color={textColor}
+                fontSize={{
+                  base: "xl",
+                  md: "lg",
+                  lg: "lg",
+                  xl: "lg",
+                  "2xl": "md",
+                  "3xl": "lg",
+                }}
+                mb='5px'
+                fontWeight='bold'
+                me='14px'>
+                {content}
+              </Text>
+        </Flex>      
       </Flex>
     </Card>
   );

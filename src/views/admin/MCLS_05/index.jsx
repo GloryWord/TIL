@@ -37,18 +37,18 @@ import {
 // Custom components
 import React from 'react';
 // Custom part
-import General from "views/admin/MCLS_06/components/General";
-import Projects from "views/admin/MCLS_06/components/Projects";
-import Banner from "views/admin/MCLS_06/components/Banner copy";
+import General from "views/admin/MCLS_05/components/General";
+import Projects from "views/admin/MCLS_05/components/Projects";
+import Banner from "views/admin/MCLS_05/components/Banner copy";
 import Card from "components/card/Card.js";
 import Graph from "components/card/Graph"
 // Assets
 import avatar from "assets/img/avatars/avatar4.png";
 import banner from "assets/img/auth/banner.png";
-import MCLS_06_graph1 from "assets/img/graph/MCLS_06_graph1.png"
+import MCLS_08_graph1 from "assets/img/graph/MCLS_05_graph1.png"
 import MCLS_06_graph2 from "assets/img/graph/MCLS_06_graph2.png"
 
-export default function MCLS_06() {
+export default function MCLS_08() {
   // Chakra Color Mode
   const brandColor = useColorModeValue("brand.500", "white");
   const boxBg = useColorModeValue("secondaryGray.300", "whiteAlpha.100");
@@ -83,24 +83,16 @@ export default function MCLS_06() {
             {/* 이미지 출력부분 */}
             <SimpleGrid columns={{ base: 1, md: 1 }} gap='20px' row = {2}>
               <Graph
-                content = "최근 5년간 지속적으로 매출 성장"
-                image={MCLS_06_graph1}
-                
+
+                image={MCLS_08_graph1}
+                content= "특정 시기 (3월, 12월) 마다 규칙적으로 매출 급증, 12월의 상승폭이 큼"
               />
-              <Graph
-                content = "모바일 시장 매출 위주로 성장"
+              {/* <Graph
                 image={MCLS_06_graph2}
 
-              />
+              /> */}
             </SimpleGrid>
           </Flex>
-
-
-          
-          {/* 그리드 설정 추가 박스 카드 양식 추가 반려동물용품 글자 크게 사료, 장난감, 장신구 글자 작게 */}
-          {/* <TotalSpent /> */}
-          {/* 통계청 우상향 매출액 그래프 관련 이미지 및 차트 */}
-          {/* 코로나 19 이후 반려동물 모바일 매출액 성장세 그래프 관련 이미지 및 차트 */}
         </Flex>
         
         <Flex
@@ -125,15 +117,6 @@ export default function MCLS_06() {
           />
         </Flex>
       </Grid>  
-
-        {/* <TotalTraffic /> */}
-
-        {/* 그리드 관련 양식 추가 */}
-
-
-        {/* 2015년 부터 20년까지 5년간 반려동물 시장 규모 상승 기사 */}
-        {/* 현재 반려인구는 1,200만 이상 등 관련 기사 */}
-      
     </Box>
   );
 }

@@ -15,15 +15,15 @@ import NFTMarketplace from "views/admin/marketplace";
 import Profile from "views/admin/profile";
 import DataTables from "views/admin/dataTables";
 import RTL from "views/admin/rtl";
-//
 import Tablolist from "views/admin/tabloList";
 import Tablo1 from "views/admin/tablo1";
-import MCLS_06 from "views/admin/MCLS_06"
-import MCLS_04_a from "views/admin/MCLS_04_a"
-import MCLS_04_b from "views/admin/MCLS_04_b"
-import MCLS_04_c from "views/admin/MCLS_04_c"
-
-
+import MCLS_04_a from "views/admin/MCLS_04_a";
+import MCLS_04_b from "views/admin/MCLS_04_b";
+import MCLS_04_c from "views/admin/MCLS_04_c";
+import MCLS_06 from "views/admin/MCLS_06";
+import MCLS_08 from "views/admin/MCLS_08";
+import MCLS_05 from "views/admin/MCLS_05";
+import MCLS_11 from "views/admin/MCLS_11";
 //
 
 // Auth Imports
@@ -86,6 +86,7 @@ const routes = [
     component: MCLS_06,
   },
   {
+
     // Pages / 문자열 
     // 문자열에 해당하는 내용이 name에 들어간다.
     name: "컴퓨터 및 주변기기 ",
@@ -106,6 +107,27 @@ const routes = [
     path: "/MCLS_04_c",
     icon: [],
     component: MCLS_04_c,
+
+    name: "MCLS_08",
+    layout: "/admin",
+    path: "/MCLS_08",
+    icon: [],
+    component: MCLS_08,
+  },
+  {
+    name: "MCLS_05",
+    layout: "/admin",
+    path: "/MCLS_05",
+    icon: [],
+    component: MCLS_05,
+  },
+  {
+    name: "MCLS_11",
+    layout: "/admin",
+    path: "/MCLS_11",
+    icon: [],
+    component: MCLS_11,
+
   },
 ];
 export default routes;
