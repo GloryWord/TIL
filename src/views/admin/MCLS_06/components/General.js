@@ -23,33 +23,35 @@ export default function GeneralInformation(props) {
         fontSize='2xl'
         mt='10px'
         mb='4px'>
-        Brief Information
+        MD insight!
       </Text>
       <Text color={textColorSecondary} fontSize='md' me='26px' mb='40px'>
-        모든 기간동안, 모바일 매출액이 높은데, 검색량은 pc에서 더 많다니…?
-        모바일 매출액이 높은 이유? 
-        간편결제방식, 쇼핑 어플 전용 할인혜택, PC보다는 시간과 장소 제약 없이 사용할 수 있음
+        가족만큼 반려동물에 투자를 아끼지 않는 고객을 타겟으로 
+        반려동물의 건강 상태 정보를 입력하고
+        맞춤형으로 반려동물 건강 증진용 
+        프리미엄 제품 판매 추천!
+        
       </Text>
       <SimpleGrid columns='2' gap='20px'>
         <Information
           boxShadow={cardShadow}
-          title='Data'
-          value='통계청 데이터'
+          title='마케팅 채널'
+          value='모바일 추천'
         />
         <Information
           boxShadow={cardShadow}
-          title='기간'
-          value='2021년 5월 ~ 23년 5월(2개년)'
+          title='제품군'
+          value='반려동물용 건강식품'
         />
         <Information
           boxShadow={cardShadow}
-          title='Data'
-          value='네이버 쇼핑 API'
+          title='마케팅 타겟'
+          value='1200만 반려인'
         />
         <Information
           boxShadow={cardShadow}
-          title='기간'
-          value='2021년 5월 ~ 23년 5월(2개년)'
+          title='시장 성장율'
+          value='매우 높음'
         />
         {/* <Information
           boxShadow={cardShadow}
