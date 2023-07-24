@@ -18,7 +18,8 @@ import RTL from "views/admin/rtl";
 //
 import Tablolist from "views/admin/tabloList";
 import Tablo1 from "views/admin/tablo1";
-import MCLS_06 from "views/admin/MCLS_06"
+import MCLS_06 from "views/admin/MCLS_06";
+import MCLS_08 from "views/admin/MCLS_08";
 //
 
 // Auth Imports
@@ -79,6 +80,13 @@ const routes = [
     path: "/MCLS_06",
     icon: [],
     component: MCLS_06,
+  },
+  {
+    name: "MCLS_08",
+    layout: "/admin",
+    path: "/MCLS_08",
+    icon: [],
+    component: MCLS_08,
   },
 ];
 export default routes;
