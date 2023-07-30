@@ -202,3 +202,71 @@ function App() {
 // 문자앞에 /가 있는것은 HTML 처럼 닫힘 태그이다
 }
 ```
+## Component에서 재사용 예시, Props 전달하는 방법
+export default는 외부에서 해당 컴포넌트 함수를 import 하도록 하는 뜻.
+
+다음은 component 재사용 예시를 보여준다.
+
+```typescript
+export default function Profile() { // 사진을 올리는 컴포넌트. 이 사진의 크기를 일괄적으로 바꿔야 할 때가 있겠다.
+  return (
+    <img
+      src="이미지 소스"
+      alt = "부제"
+      /> // 태그가 <></>형식이 아니라, </> 한번에 몰아서 끝낼 수도 있구나.
+  )
+}
+
+export default function Gallery() { // 컴포넌트 호출을 <Profile /> 이런식으로 하는군
+  return (
+    <section>
+      <h1>Scientists</h1>
+      <Profile />   
+      <Profile />
+      <Profile />
+    </section>
+  )
+}
+```
+
+참고로, 태그에 소문자가 있으면 html, 대문자면 컴포넌트. 
+
+컴포넌트 안에 컴포넌트를 선언하면 안됨.
+
+다음은 props를 전달받는 예시이다.
+
+```typescript
+function Avatar() {
+  return (
+    <img
+      classname="avatar"
+      src="http://1bX5QH6....."
+      alt="린 야오밍"
+      width={100}
+      height={100}
+      />
+  );
+}
+
+export default function Profile() {
+  return (
+    <Avatar
+      person={{ name="린 야오밍", imageId: '1bX5QH6'}}
+      size={100}
+      />
+  );
+}
+
+function Avatar({ person, size }) { // props이 {}로 전달되는 이유는 {} 내부 요소들이 하나의 props이기 때문이다.
+  return (
+    <img
+      className ="avatar"
+      src={getImageUrl(person)}
+      alt={person.name}
+      width={size}
+      height={size}
+      />
+  );
+}
+```
+

@@ -58,7 +58,16 @@ const express = require('express'); // require는 라이브러리 가져오는 �
 
 const PORT = 4000;
 const app = express();
-
+const Users = [
+    {
+        id:0,
+        name : 'Jack'
+    },
+    {
+        id:1,
+        name:'Jennifer'
+    }
+]
 app.get('/',(req,res)=>{
     res.send('Hello World');
 })
@@ -67,3 +76,5 @@ app.listen(PORT, ()=>{ // Express 애플리케이션을 특정 포트에서 실�
     console.log('Running on port ${PORT}')
 })
 ```
+Users를 추가했으면 **'라우트 핸들러'** 라는 것을 생성해야 한다고 한다.
+

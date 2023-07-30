@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+<script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script> <!-- React --> <!-- development.min.js 이 새끼가 문제였다.-->
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script> <!-- React-Dom -->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script> <!-- Babel -->
+<script type="text/babel">
+    // const span = React.createElement("span"); // React 요소 생성.
+    function App() {
+	const [minutes,setMinutes] = React.useState(5); // 이게 input value={minutes}에 간다.
+	const onChange = (event) => { // input 태그에 변화가 생기면 호출.
+		setMinutes(event.target.value); 
+	};
+	const Reset = (event) => {
+		setMinutes(0);
+	};
+	return (
+		<div>
+			<h1>Super Converter</h1>
+			<div>
+				<label htmlFor="minutes">Minutes</label>
+				<input value={minutes}
+							id="minutes" 
+							placeholder="Minutes"
+							type="number"
+							onChange={onChange} 
+							/>
+			</div>
+			<div>
+				<label htmlFor="hours">Hours</label> 
+				<input value={minutes / 60} id="hours" placeholder="Hours" type="number" />
+				<h4>You want to convert {minutes}</h4>
+			</div>
+			<div><button onClick={Reset}>Reset</button></div>
+		</div>
+	);
+}
+
+const root = document.getElementById("root"); // root라는 HTML 요소 생성.
+ReactDOM.render(<App />, root); // ReactDom이 만든 HTML을 브라우저에 그려준다.
+
+</script>
+</html>
+
+
