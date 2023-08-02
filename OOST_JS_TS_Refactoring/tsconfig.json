@@ -1,0 +1,26 @@
+// tsconfig.json 헤쳐보기
+{
+    // 객체 데이터 지정
+    "compilerOptions": {
+       "target":"ES2015", // javascript 2015버젼사용
+       "module": "ESNext", // 자바스크립트의 이름이 에크마 스크립트인데 그것의 줄임말이고, Next는 가장 최신의 모듈을 사용하겠다.
+       // 모듈의 해석 방법, 어떤 경로를 작성할 때, 특정한 폴더 안에 있는 index라는 이름을 가진 js 파일 생략이 가능해짐. moduleResolution에 대한 주석.
+       "moduleResolution": "Node",
+       // js는 ESM 방식 사용, Node.js 에서는 Commonjs 방식을 쓰는데, 호환해서 쓰겠다는 의미.
+       "esModuleInterop": true,
+       // Ts를 js로 컴파일 할 때 사용해야 하는 모듈이 있는데 그걸 import
+       "lib": ["ESNext","DOM",],
+       "strict":true // ts문법을 엄격하게 한다가 맞다고 함. 그래야 typescript를 쓰는 의미가 있다고 한다.
+    },
+    "include": [
+       "src/**/*.ts",
+       "src/**/*.tsx"
+
+    ], // 프로젝트의 어디에서 typescript 파일을 찾을 수 있는지 적어준다고 한다. OOST JS-TS 변환 작업에서는 그에 맞게 해주자.
+   
+    // compile할 때 제외할 경로.
+    "exclude":[
+       "node_modules"
+        // node_modules는 패키지를 보관하기 위함이지, Ts를 Js로 변환하기 위한 폴더가 아니기 때문에 제외시킨다.
+    ]
+   }
