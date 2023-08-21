@@ -37,7 +37,24 @@ app.get('/user/:id', (req,res) => { // 콜론 뒤에 id가 들어간다. 침착�
 주소를 클릭하면, ,
 ## Server.js
 Node.js에서 진입점이 되는 파일.
+```javascript
+const express = require('express');
 
+// Constants
+const PORT = 5500;
+const HOST = '0.0.0.0';
+
+// App
+const app = express();
+app.get('/', (req,res) => {
+  res.send('Hello World');
+});
+
+app.listen(PORT, HOST);
+console.log(`Running on https://${HOST}:${PORT}`);
+```
+
+구체적인 예시로 간다.
 ```javascript
 const express = require('express'); // require는 라이브러리 가져오는 함수. 따라서 express라는 const 변수에 넣기.
 
