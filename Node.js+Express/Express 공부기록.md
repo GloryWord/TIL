@@ -36,22 +36,39 @@ app.get('/user/:id', (req,res) => { // 콜론 뒤에 id가 들어간다. 침착�
 ### query를 이용한 방법.
 주소를 클릭하면, ,
 ## Server.js
-Node.js에서 진입점이 되는 파일.
+Node.js에서 진입점이 되는 파일. 다음의 예시는 Express를 사용하지 않을 때 원칙적으로 해야하는 Server.js의 구조이다.
+
+```javascript
+const sever = http.createServer((req,res) +> {
+  // writeHead는 한 번만 호출되어야 하며 end()가 호출되기 전에 호출되어야 한다.
+  // 상대 코드와 응답 헤더를 클라이언트에 보낸다. Express에서는 상태코드랑 Content-Type 명시 안 해도 된다.
+  res.writeHead(200, {
+      'Content-Type': 'text/plain'
+  });
+  // 데이터가 로드 되었을 때 서버에 알림.
+  res.end('Complate Load!');
+
+  server.listen(PORT, () => {
+      console.log(`Listening on port ${PORT}...`);
+  });
+});
+```
+### 만약 Express를 쓴다면 위의 코드는?
 ```javascript
 const express = require('express');
 
 // Constants
 const PORT = 5500;
-const HOST = '0.0.0.0';
+const HOST = '0.0.0.0'; // 필수 아님
 
 // App
-const app = express();
-app.get('/', (req,res) => {
+const app = express(); // express 어플 생성
+app.get('/', (req,res) => { // 지금은 '/'지만, 저 매개변수에 경로로 요청이 올 때 Hell World 출력
   res.send('Hello World');
 });
 
 app.listen(PORT, HOST);
-console.log(`Running on https://${HOST}:${PORT}`);
+console.log(`Running on https://${HOST}:${PORT}`); // 해당 포트와 호스트에서 HTTP 서버를 시작.
 ```
 
 구체적인 예시로 간다.
