@@ -215,4 +215,105 @@ function App() {
 ``` 
 이렇게 변경해야 했다.
 
+# 0828
+
+```cmd
+npx create-next-app@latest --typescript
+Need to install the following packages:
+  create-next-app@13.4.19
+Ok to proceed? (y) y
+√ What is your project named? ... frontend
+√ Would you like to use ESLint? ... No / Yes
+√ Would you like to use Tailwind CSS? ... No / Yes
+√ Would you like to use `src/` directory? ... No / Yes
+√ Would you like to use App Router? (recommended) ... No / Yes
+√ Would you like to customize the default import alias? ... No / Yes
+√ What import alias would you like configured? ... @/*
+@/*가 기본 값이고 그냥 엔터누르기.
+```
+ 
+
+
+
+```cmd
+npm install --save-dev --save-exact prettier
+
+added 1 package in 711ms
+
+1 package is looking for funding
+  run `npm fund` for details
+
+Doldari Teenager@Doldari-Teenager MINGW64 ~/react_with_typescript_project_mern_stack_coupang_eats
+$ echo {}> .prettierrc.yaml 
+```
+이러면 현재폴더에 yaml 파일 생성됨. 
+
+강사의 실수가 있었다.  
+cd frontend로 옮기고 다시 설치한다. 물론, frontend 폴더 바깥에 있는 packagejson과 node_modules 즉, 저 위의 npm 으로 인해 만들어진건 다 지운다.
+
+다시
+``` cmd
+npm install --save-dev --save-exact prettier
+
+added 1 package, and audited 330 packages in 792ms
+
+118 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+Doldari Teenager@Doldari-Teenager MINGW64 ~/react_with_typescript_project_mern_stack_coupang_eats/frontend (master)
+$ echo {}> .prettierrc.yaml
+```
+현재 폴더에 .prettierignore파일을 만들고
+```cmd
+# Ignore artifacts :
+build
+coverage
+```
+입력 후 저장
+
+그리고
+```cmd
+npm install --save-dev eslint-config-prettier
+```
+
+.eslintrc.json의 내용을 아래와 같이 변경한다.
+
+```cmd
+{
+  "extends": ["next/core-web-vitals","prettier"]
+}
+```
+
+그리고 .prettierrc.yaml에 강사는 자기가 좋아하는 설정을 했는데, 개인 취향이다.  
+쉽게말해 자동완성 기능에 세미콜린이나 탭 길이 등등을 정하는 모양이다.
+
+```typescript
+trailingComma: 'es5'
+tabWidth : 2
+tabs : false
+semi : true
+singleQuote : true
+```
+로그인 기능 구현하기 (Next auth)
+강사들 보면, 공식 사이트를 굉장히 많이 활용한다. 
+https://next-auth.js.org/getting-started/example 여기에 가서 시작할 때 어떤 폴더에 어떤 파일명에 코드는 뭐로 할지 다 나와있다.  
+사이트 가서 Add API route 부분을 읽어보자.
+내 로컬에서는 frontend\src\pages\api\auth 이렇게 폴더 만들고 파일 만들었다. 
+js가 아닌 ts로 바꾸자. 
+
+그러자 여기에 오류가 발생했는데, 
+import NextAuth from "next-auth"
+import GithubProvider from "next-auth/providers/github"
+앞 강의를 생략해서 그렇다. backend 강의에서 API 설치부분을 듣고 오자.
+
+### Backend 강의 기록
+몽고DB에서 새로운 프로젝트를 만들고 이름은 api로 한다. Seoul 지역의 AWS에서 프리 버전으로 DB만들고 유저를 만드는데, ID : gloryword999, PW : 5zNot1PRrbrYjK7W 이렇게 설정했다.
+참고로, 내 로컬의 접근 가능한 IP는 (IP Access List_ : 1.240.176.53/32 )
+
+이제 Overview로 돌아와서 내가 만들었던 Cluster0이 있을텐데 거기에 CONNECT 누르고 Compass 누른다. Compass 설치가 안되어있으므로 해주고, url로 DB에 접근 하는건데,  url에 ID,PW가 다 들어간다. 지금 기준으로는 mongodb+srv://gloryword999:5zNot1PRrbrYjK7W @cluster0.3s0fodm.mongodb.net/ 이다.
+
+vscode에서 mongodb 환경세팅하기
+.eslintrc.js, .prettierrc.js, tsconfig.json 이건 귀찮아서 그냥 Clone 해왔다. 
 
